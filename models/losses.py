@@ -67,13 +67,23 @@ class GSNLoss(nn.Module):
 
     def forward(self, rgb_real, rgb_fake, depth_real, depth_fake, global_step, optimizer_idx):
         rgb_real.requires_grad = True  # for R1 gradient penalty
+        print('RGB')
+        print(rgb_real.size())
+        print('Depth')
+        print(depth_real.size())
+        print('fake')
+        print(depth_fake.size())
 
         if self.concat_depth:
             if depth_fake.shape[-1] != depth_real.shape[-1]:
                 # downscale real depth so it doesn't have more details than fake depth
                 depth_real = F.interpolate(depth_real, size=depth_fake.shape[-1], mode='bilinear', align_corners=False)
+                print('after 1')
+                print(depth_real.size())
                 # then resize both depth back up to match RGB res
                 depth_real = F.interpolate(depth_real, size=rgb_real.shape[-1], mode='bilinear', align_corners=False)
+                print('after 2')
+                print(depth_real.size())
                 depth_fake = F.interpolate(depth_fake, size=rgb_real.shape[-1], mode='bilinear', align_corners=False)
 
             disc_in_real = torch.cat([rgb_real, depth_real], dim=1)
