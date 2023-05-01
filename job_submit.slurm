@@ -16,4 +16,10 @@
 ##SBATCH --mail-type=ALL              #Send email on all job events
 ##SBATCH --mail-user=email_address    #Send all emails to email_address 
 
+#source ~/.bashrc
+#conda deactivate
+#conda activate gsn
+#conda info --envs
+#which python3.8
+cd /scratch/user/zhewen/ml-gsn
 sh /scratch/user/zhewen/ml-gsn/scripts/launch_gsn_newdata_64x64.sh
