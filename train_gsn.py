@@ -84,7 +84,7 @@ def main(opt):
         trainer.fit(
             gsn,
             train_dataloaders=data_module.train_dataloader(),
-            val_dataloaders=data_module.val_dataloader(),
+            # val_dataloaders=data_module.val_dataloader(),
         )
 
 

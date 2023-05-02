@@ -13,8 +13,8 @@
 
 ##OPTIONAL JOB SPECIFICATIONS
 ##SBATCH --account=123456             #Set billing account to 123456
-##SBATCH --mail-type=ALL              #Send email on all job events
-##SBATCH --mail-user=email_address    #Send all emails to email_address 
+#SBATCH --mail-type=ALL              #Send email on all job events
+#SBATCH --mail-user=zhewen@tamu.edu  #Send all emails to email_address 
 
 #source ~/.bashrc
 #conda deactivate

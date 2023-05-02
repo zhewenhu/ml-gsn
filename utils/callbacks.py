@@ -46,7 +46,7 @@ class GSNVizCallback(Callback):
             sample_floorplans(self.viz_dir, filename, self.voxel_res, self.voxel_size, batch)
 
             filename = 'real_trajectories_epoch_{:06d}.png'.format(trainer.current_epoch)
-            sample_trajectories(self.viz_dir, filename, self.voxel_res, self.voxel_size, batch['Rt'].clone())
+            # sample_trajectories(self.viz_dir, filename, self.voxel_res, self.voxel_size, batch['Rt'].clone())
 
             del batch['Rt']  # remove Rt so that trajectory sampler fills it in
             for k in batch.keys():
@@ -63,7 +63,7 @@ class GSNVizCallback(Callback):
             sample_floorplans(self.viz_dir, filename, self.voxel_res, self.voxel_size, fake_batch)
 
             filename = 'fake_trajectories_epoch_{:06d}.png'.format(trainer.current_epoch)
-            sample_trajectories(self.viz_dir, filename, self.voxel_res, self.voxel_size, Rt)
+            # sample_trajectories(self.viz_dir, filename, self.voxel_res, self.voxel_size, Rt)
 
 
 def sample_static(viz_dir, filename, rgb, nrow=4):
