@@ -1,7 +1,7 @@
 data_config:
   dataset: 'replica_all'
   data_dir: '/mnt/task_runtime/data/replica_all'
-  num_workers: 4
+  num_workers: 2
   batch_size: 16
   img_res: 64
   seq_len: 4
