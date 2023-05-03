@@ -160,15 +160,18 @@ class NewDataset(Dataset):
 
         # https://codeyarns.com/tech/2015-09-08-how-to-compute-intrinsic-camera-matrix-for-a-camera.html
         # images were rendered at 1920x1440 res, and truncated and resized to 64x64
-        fx = (1440.0 / 2) / np.tan(np.deg2rad(90.0) / 2)
-        fy = (1440.0 / 2) / np.tan(np.deg2rad(90.0) / 2)
-        K[:, 0, 0] = K[:, 0, 0] * fx
-        K[:, 1, 1] = K[:, 1, 1] * fy
+        # fx = (1440.0 / 2) / np.tan(np.deg2rad(90.0) / 2)
+        # fy = (1440.0 / 2) / np.tan(np.deg2rad(90.0) / 2)
+        # K[:, 0, 0] = K[:, 0, 0] * fx
+        # K[:, 1, 1] = K[:, 1, 1] * fy
 
         downsampling_ratio = self.img_res / 1440
+        # ratio_2 = 64/700
         K[:, 0, 0] = K[:, 0, 0] * downsampling_ratio
         K[:, 1, 1] = K[:, 1, 1] * downsampling_ratio
-        depth = depth * 1000  # recommended scaling from game engine units to real world units
+        # K[:, 0, 2] = K[:, 0, 2] * ratio_2
+        # K[:, 1, 2] = K[:, 1, 2] * ratio_2
+        # depth = depth * 1000  # recommended scaling from game engine units to real world units
 
         if self.depth:
             sample = {'rgb': rgb, 'depth': depth, 'K': K, 'Rt': Rt, 'scene_idx': idx}
