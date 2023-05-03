@@ -21,5 +21,5 @@
 #conda activate gsn
 #conda info --envs
 #which python3.8
-cd /scratch/user/zhewen/ml-gsn
-sh /scratch/user/zhewen/ml-gsn/scripts/launch_gsn_newdata_64x64.sh
+cd $SCRATCH/ml-gsn
+sh $SCRATCH/ml-gsn/scripts/launch_gsn_newdata_64x64.sh
